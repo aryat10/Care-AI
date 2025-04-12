@@ -7,10 +7,9 @@ console.log("Loaded API Key:", process.env.OPENAI_API_KEY); // Verify API key is
 
 const app = express();
 
-app.use(cors({
-  origin: 'https://care-ai-frontend.onrender.com' // Update after frontend deployment
-}));
+app.use(cors());
 app.use(express.json());
+
 
 app.use('/api/openai', openaiRoutes);
 
