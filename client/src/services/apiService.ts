@@ -28,7 +28,7 @@ const detectSymptomCategory = (symptoms: string): string => {
 // Function to post symptoms and get advice from the backend
 export const postSymptoms = async (symptoms: string): Promise<{ advice: string }> => {
   try {
-    const response = await fetch('http://localhost:8000/api/openai/symptoms', {
+    const response = await fetch('https://care-ai-1.onrender.com/api/openai/symptoms', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -47,7 +47,7 @@ export const postSymptoms = async (symptoms: string): Promise<{ advice: string }
 // Function to get first-aid advice for a condition from the backend
 export const getFirstAid = async (condition: string): Promise<{ firstAid: string }> => {
   try {
-    const response = await fetch('http://localhost:8000/api/openai/firstaid', {
+    const response = await fetch('https://care-ai-1.onrender.com/api/openai/firstaid', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
