@@ -1,18 +1,17 @@
 import React, { useEffect } from "react";
-import { Activity, Heart, Phone, Bandage, Stethoscope } from "lucide-react";
+import { Activity, Heart, Phone, Bandage, Stethoscope, Linkedin, Github, Mail, MapPin, Link } from "lucide-react";
 import MedicalChatInterface from "@/components/MedicalChatInterface";
 
 const Index = () => {
-  // Simulate a loading effect for the chat interface
   useEffect(() => {
     const timer = setTimeout(() => {
-      // Could add a loading state here if needed
+      // Optional loading effect
     }, 500);
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white flex flex-col">
       <header className="bg-medical-dark text-white py-4 px-6 shadow-md transition-all duration-300 hover:shadow-lg">
         <div className="container mx-auto">
           <div className="flex justify-between items-center">
@@ -33,19 +32,7 @@ const Index = () => {
         </div>
       </header>
 
-      <main className="container mx-auto py-8 px-4">
-        <div
-          className="max-w-4xl mx-auto text-center mb-8 bg-medical-blue p-6 rounded-lg shadow-md" // Changed to solid medical-blue
-        >
-          <h1 className="text-3xl font-bold mb-2 text-white drop-shadow-lg"> 
-            Your Personal Medical Assistant
-          </h1>
-          <p className="text-white max-w-2xl mx-auto"> 
-            Get quick health advice and first-aid information. 
-            Remember, this is not a substitute for professional medical care.
-          </p>
-        </div>
-
+      <main className="container mx-auto py-8 px-4 flex-grow">
         <div className="mb-12">
           <MedicalChatInterface />
         </div>
@@ -70,31 +57,100 @@ const Index = () => {
         </div>
       </main>
 
-      <footer className="bg-gray-800 text-white py-6 px-4 mt-12">
-        <div className="container mx-auto text-center text-sm">
-          <p className="mb-2 text-gray-300">
-            <strong className="text-white">Important Disclaimer:</strong> This medical assistant provides general information only and is not a substitute for professional medical advice.
-          </p>
-          <p className="text-gray-400">
-            © 2025 CareAI. All rights reserved. |{" "}
-            <a href="#" className="underline hover:text-medical-teal">Terms</a> |{" "}
-            <a href="#" className="underline hover:text-medical-teal">Privacy</a>
-          </p>
+      <footer className="bg-medical-dark text-white py-6">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* About Section */}
+            <div className="space-y-4">
+              <div className="flex items-center space-x-2">
+                <Heart className="h-6 w-6 text-red-400" />
+                <h2 className="text-xl font-bold text-medical-white">CareAI</h2>
+              </div>
+              <p className="text-sm">
+                Empowering health with AI. Helping people with just a prompt.
+              </p>
+              <p className="text-xs italic">
+                Made with ❤️ by Aryat
+              </p>
+            </div>
+
+            {/* Quick Links Section */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold border-b border-gray-500 pb-2">Quick Links</h3>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <a href="#symptom-checker" className="hover:text-medical-teal transition-colors">
+                    Symptom Checker
+                  </a>
+                </li>
+                <li>
+                  <a href="#first-aid" className="hover:text-medical-teal transition-colors">
+                    First Aid Tips
+                  </a>
+                </li>
+                <li>
+                  <a href="#resources" className="hover:text-medical-teal transition-colors">
+                    Health Resources
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Contact & Social Section */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold border-b border-gray-500 pb-2">Connect with Us</h3>
+              <div className="space-y-2 text-sm">
+                <div className="flex items-center space-x-2">
+                  <Mail className="h-4 w-4" />
+                  <a href="mailto:aryatsrishadow--7@gmail.com" className="hover:text-medical-teal transition-colors">
+                    aryatsrishadow007@gmail.com
+                  </a>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <MapPin className="h-4 w-4" />
+                  <span>KIET Group of Institutions</span>
+                </div>
+              </div>
+              <div className="flex space-x-4 pt-2">
+                <a
+                  href="https://github.com/aryat10"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 bg-gray-700 rounded-full hover:bg-gray-600 transition-colors"
+                >
+                  <Github className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/aryatsrivastavaweb/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 bg-blue-700 rounded-full hover:bg-blue-600 transition-colors"
+                >
+                  <Linkedin className="h-5 w-5" />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="mt-8 pt-6 border-t border-gray-500 text-center">
+            <p className="text-xs">
+              © 2025 CareAI. All rights reserved.
+            </p>
+          </div>
         </div>
       </footer>
     </div>
   );
 };
 
-const FeatureCard = ({ 
-  icon, 
-  title, 
+const FeatureCard = ({
+  icon,
+  title,
   description,
-  comingSoon = false
-}: { 
-  icon: React.ReactNode; 
-  title: string; 
-  description: string; 
+  comingSoon = false,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
   comingSoon?: boolean;
 }) => {
   return (
